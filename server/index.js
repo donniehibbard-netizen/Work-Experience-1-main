@@ -19,12 +19,10 @@ app.post("/contact", (req, res) => {
   const message = (req.body.message || "").trim();
 
   if (!name || !email || !message) {
-    return res
-      .status(400)
-      .json({
-        ok: false,
-        error: "Please fill in your name, email and message.",
-      });
+    return res.status(400).json({
+      ok: false,
+      error: "Please fill in your name, email and message.",
+    });
   }
 
   sendToSupport({ name, email, message });
